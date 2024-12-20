@@ -42,6 +42,10 @@ android {
         }
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     sourceSets.getByName("main") {
         assets.srcDir("../assets")
         manifest.srcFile("../AndroidManifest.xml")

@@ -26,6 +26,7 @@ import android.provider.OpenableColumns;
 import androidx.collection.SimpleArrayMap;
 import android.text.TextUtils;
 
+import com.android.messaging.BuildConfig;
 import com.android.messaging.Factory;
 import com.android.messaging.util.Assert;
 import com.android.messaging.util.LogUtil;
@@ -46,7 +47,7 @@ public class MediaScratchFileProvider extends FileProvider {
 
     @VisibleForTesting
     public static final String AUTHORITY =
-            "com.android.messaging.datamodel.MediaScratchFileProvider";
+            BuildConfig.APPLICATION_ID + ".datamodel.MediaScratchFileProvider";
     private static final String MEDIA_SCRATCH_SPACE_DIR = "mediascratchspace";
 
     public static boolean isMediaScratchSpaceUri(final Uri uri) {

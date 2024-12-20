@@ -27,6 +27,7 @@ import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 
 import com.android.messaging.BugleApplication;
+import com.android.messaging.BuildConfig;
 import com.android.messaging.Factory;
 import com.android.messaging.datamodel.DatabaseHelper.ConversationColumns;
 import com.android.messaging.datamodel.DatabaseHelper.ConversationParticipantsColumns;
@@ -55,7 +56,7 @@ public class MessagingContentProvider extends ContentProvider {
 
     @VisibleForTesting
     public static final String AUTHORITY =
-            "com.android.messaging.datamodel.MessagingContentProvider";
+        BuildConfig.APPLICATION_ID + ".datamodel.MessagingContentProvider";
     private static final String CONTENT_AUTHORITY = "content://" + AUTHORITY + '/';
 
     // Conversations query
