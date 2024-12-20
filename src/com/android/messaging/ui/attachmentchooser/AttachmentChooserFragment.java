@@ -20,7 +20,6 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.appcompat.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -44,6 +43,8 @@ import com.google.common.annotations.VisibleForTesting;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.appcompat.app.ActionBar;
 
 public class AttachmentChooserFragment extends Fragment implements DraftMessageDataListener,
         AttachmentGridHost {
@@ -84,14 +85,11 @@ public class AttachmentChooserFragment extends Fragment implements DraftMessageD
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_confirm_selection:
-                confirmSelection();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.action_confirm_selection) {
+            confirmSelection();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @VisibleForTesting

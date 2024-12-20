@@ -30,7 +30,6 @@ import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.preference.TwoStatePreference;
 import android.provider.Settings;
-import androidx.core.app.NavUtils;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,6 +42,8 @@ import com.android.messaging.util.BuglePrefs;
 import com.android.messaging.util.DebugUtils;
 import com.android.messaging.util.OsUtil;
 import com.android.messaging.util.PhoneUtils;
+
+import androidx.core.app.NavUtils;
 
 public class ApplicationSettingsActivity extends BugleActionBarActivity {
     @Override
@@ -72,11 +73,12 @@ public class ApplicationSettingsActivity extends BugleActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
-        switch (item.getItemId()) {
-        case android.R.id.home:
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
             return true;
-        case R.id.action_license:
+        }
+        if (itemId == R.id.action_license) {
             final Intent intent = new Intent(this, LicenseActivity.class);
             startActivity(intent);
             return true;

@@ -15,7 +15,6 @@
  */
 package com.android.messaging.ui.conversationlist;
 
-import androidx.collection.ArrayMap;
 import android.text.TextUtils;
 import android.view.ActionMode;
 import android.view.ActionMode.Callback;
@@ -29,6 +28,8 @@ import com.android.messaging.util.Assert;
 
 import java.util.Collection;
 import java.util.HashSet;
+
+import androidx.collection.ArrayMap;
 
 public class MultiSelectActionModeCallback implements Callback {
     private HashSet<String> mBlockedSet;
@@ -103,36 +104,42 @@ public class MultiSelectActionModeCallback implements Callback {
 
     @Override
     public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-        switch(menuItem.getItemId()) {
-            case R.id.action_delete:
-                mListener.onActionBarDelete(mSelectedConversations.values());
-                return true;
-            case R.id.action_archive:
-                mListener.onActionBarArchive(mSelectedConversations.values(), true);
-                return true;
-            case R.id.action_unarchive:
-                mListener.onActionBarArchive(mSelectedConversations.values(), false);
-                return true;
-            case R.id.action_notification_off:
-                mListener.onActionBarNotification(mSelectedConversations.values(), false);
-                return true;
-            case R.id.action_notification_on:
-                mListener.onActionBarNotification(mSelectedConversations.values(), true);
-                return true;
-            case R.id.action_add_contact:
-                Assert.isTrue(mSelectedConversations.size() == 1);
-                mListener.onActionBarAddContact(mSelectedConversations.valueAt(0));
-                return true;
-            case R.id.action_block:
-                Assert.isTrue(mSelectedConversations.size() == 1);
-                mListener.onActionBarBlock(mSelectedConversations.valueAt(0));
-                return true;
-            case android.R.id.home:
-                mListener.onActionBarHome();
-                return true;
-            default:
-                return false;
+        int itemId = menuItem.getItemId();
+        if (itemId == R.id.action_delete) {
+            mListener.onActionBarDelete(mSelectedConversations.values());
+            return true;
         }
+        if (itemId == R.id.action_archive) {
+            mListener.onActionBarArchive(mSelectedConversations.values(), true);
+            return true;
+        }
+        if (itemId == R.id.action_unarchive) {
+            mListener.onActionBarArchive(mSelectedConversations.values(), false);
+            return true;
+        }
+        if (itemId == R.id.action_notification_off) {
+            mListener.onActionBarNotification(mSelectedConversations.values(), false);
+            return true;
+        }
+        if (itemId == R.id.action_notification_on) {
+            mListener.onActionBarNotification(mSelectedConversations.values(), true);
+            return true;
+        }
+        if (itemId == R.id.action_add_contact) {
+            Assert.isTrue(mSelectedConversations.size() == 1);
+            mListener.onActionBarAddContact(mSelectedConversations.valueAt(0));
+            return true;
+        }
+        if (itemId == R.id.action_block) {
+            Assert.isTrue(mSelectedConversations.size() == 1);
+            mListener.onActionBarBlock(mSelectedConversations.valueAt(0));
+            return true;
+        }
+        if (itemId == android.R.id.home) {
+            mListener.onActionBarHome();
+            return true;
+        }
+        return false;
     }
 
     @Override
