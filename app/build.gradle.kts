@@ -18,9 +18,21 @@ android {
     defaultConfig {
         versionCode = 10001040 + 1
         versionName = "1.0.001"
-        minSdk = 24
+        minSdk = 35
         //noinspection ExpiredTargetSdkVersion
         targetSdk = 24
+
+        ndk {
+            abiFilters.clear()
+            abiFilters.addAll(listOf("arm64-v8a", "x86_64"))
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path = file("../CMakeLists.txt")
+            version = "3.22.1"
+        }
     }
 
     buildTypes {
