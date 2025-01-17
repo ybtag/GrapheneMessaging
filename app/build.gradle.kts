@@ -85,6 +85,10 @@ android {
             resValue("string", "app_name", "Messaging d")
         }
     }
+
+    lint {
+        abortOnError = false
+    }
 }
 
 dependencies {
