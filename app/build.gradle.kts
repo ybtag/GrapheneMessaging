@@ -76,8 +76,6 @@ android {
             if (useKeystoreProperties) {
                 signingConfig = signingConfigs.getByName("release")
             }
-            applicationIdSuffix = ".preview"
-            resValue("string", "app_name", "Preview Messaging")
         }
 
         getByName("debug") {
