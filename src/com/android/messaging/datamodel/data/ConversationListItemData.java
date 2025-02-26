@@ -102,7 +102,8 @@ public class ConversationListItemData {
             mNotificationVibrate = cursor.getInt(INDEX_NOTIFICATION_VIBRATION) == 1;
         } else {
             mNotificationEnabled = channel.getImportance() > 0;
-            mNotificationSoundUri = channel.getSound().toString();
+            Uri sound = channel.getSound();
+            mNotificationSoundUri = sound != null ? sound.toString() : null;
             mNotificationVibrate = channel.shouldVibrate();
         }
 
