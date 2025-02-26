@@ -19,8 +19,8 @@ android {
     namespace = "com.android.messaging"
 
     defaultConfig {
-        versionCode = 20000000 + 7
-        versionName = "7"
+        versionCode = 20000000 + 8
+        versionName = "8"
         minSdk = 35
         targetSdk = 35
 
