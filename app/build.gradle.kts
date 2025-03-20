@@ -92,7 +92,7 @@ android {
 dependencies {
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.palette:palette:1.0.0")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.google.guava:guava:33.4.0-android")
     implementation("com.googlecode.libphonenumber:libphonenumber:8.13.52")
