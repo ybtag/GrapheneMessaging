@@ -21,7 +21,7 @@ android {
     defaultConfig {
         versionCode = 20000000 + 8
         versionName = "8"
-        minSdk = 35
+        minSdk = 27
         targetSdk = 35
 
         ndk {
