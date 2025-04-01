@@ -26,7 +26,7 @@ android {
 
         ndk {
             abiFilters.clear()
-            abiFilters.addAll(listOf("armv7", "arm64-v8a", "x86_64"))
+            abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a", "x86_64"))
         }
     }
 
