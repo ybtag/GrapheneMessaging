@@ -175,23 +175,22 @@ public class ConversationActivity extends BugleActionBarActivity
         }
     }
 
-    @Override
-    public void updateActionBar(final ActionBar actionBar) {
-        super.updateActionBar(actionBar);
-        final ConversationFragment conversation = getConversationFragment();
-        final ContactPickerFragment contactPicker = getContactPicker();
-        if (contactPicker != null && mUiState.shouldShowContactPickerFragment()) {
-            contactPicker.updateActionBar(actionBar);
-        } else if (conversation != null && mUiState.shouldShowConversationFragment()) {
-            conversation.updateActionBar(actionBar);
+        @Override
+        public void updateActionBar(final ActionBar actionBar) {
+            super.updateActionBar(actionBar);
+            final ConversationFragment conversation = getConversationFragment();
+            final ContactPickerFragment contactPicker = getContactPicker();
+            if (contactPicker != null && mUiState.shouldShowContactPickerFragment()) {
+                contactPicker.updateActionBar(actionBar);
+            } else if (conversation != null && mUiState.shouldShowConversationFragment()) {
+                conversation.updateActionBar(actionBar);
+            }
+        
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S && isLaunchedFromBubble()) {
+                actionBar.setHomeButtonEnabled(false);
+                actionBar.setDisplayHomeAsUpEnabled(false);
+            }
         }
-
-        if (isLaunchedFromBubble()) {
-            actionBar.setHomeButtonEnabled(false);
-            actionBar.setDisplayHomeAsUpEnabled(false);
-        }
-    }
-
     @Override
     public boolean onOptionsItemSelected(final MenuItem menuItem) {
         if (super.onOptionsItemSelected(menuItem)) {
