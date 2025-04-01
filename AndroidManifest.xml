@@ -18,9 +18,9 @@
     android:installLocation="internalOnly"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-sdk tools:overrideLibrary="com.android.ex.chips" />
-    
-    <uses-sdk tools:overrideLibrary="com.android.ex.photo" />
+    <uses-sdk
+        android:minSdkVersion="27"
+        tools:overrideLibrary="com.android.ex.photo" />
     <!-- Application holds CPU wakelock while working in background -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- Application needs SMS/MMS permissions -->
