@@ -36,9 +36,9 @@ android {
         java.srcDirs("../src")
         res.srcDir("../res")
     }
-    packagingOptions {
+    packaging {
         resources {
-            pickFirst 'res/**/mms_config.xml'
+            pickFirsts.add("res/**/mms_config.xml")
         }
     }
 }
