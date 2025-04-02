@@ -36,6 +36,11 @@ android {
         java.srcDirs("../src")
         res.srcDir("../res")
     }
+    packagingOptions {
+        resources {
+            pickFirst 'res/**/mms_config.xml'
+        }
+    }
 }
 
 dependencies {
