@@ -39,7 +39,10 @@ android {
 
     packaging {
         resources {
-            pickFirsts += "*/mms_config.xml" // Fix duplicates
+            excludes += listOf(
+                "xml-mcc450/mms_config.xml",
+                "xml-mcc647/mms_config.xml"
+            )
         }
     }
 }
