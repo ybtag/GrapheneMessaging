@@ -1,3 +1,14 @@
+plugins {
+    id("com.android.application")
+    kotlin("android")
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
 android {
     compileSdk = 35
     buildToolsVersion = "35.0.0"
@@ -8,6 +19,7 @@ android {
         versionCode = 10001040 + 1
         versionName = "1.0.001"
         minSdk = 24
+        //noinspection ExpiredTargetSdkVersion
         targetSdk = 24
     }
 
@@ -27,7 +39,7 @@ android {
 
     packaging {
         resources {
-            pickFirsts += "*/mms_config.xml" // Broader pattern
+            pickFirsts += "*/mms_config.xml" // Fix duplicates
         }
     }
 }
@@ -37,6 +49,7 @@ dependencies {
     implementation("androidx.palette:palette:1.0.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("com.google.guava:guava:33.4.0-android")
+
     implementation(project(":lib:platform_external_libphonenumber"))
     implementation(project(":lib:platform_frameworks_ex:common"))
     implementation(project(":lib:platform_frameworks_ex:framesequence"))
